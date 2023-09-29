@@ -1,0 +1,29 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+
+    implementation 'com.sparkjava:spark-core:2.9.4'
+    implementation 'com.sparkjava:spark-template-thymeleaf:2.7.1'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
+    implementation 'com.github.kkuegler:human-readable-ids-java:0.2'
+
+    implementation 'com.google.guava:guava:31.1-jre'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+application {
+    mainClass = 'com.willian.beanblogger.App'
+}
