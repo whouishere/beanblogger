@@ -5,13 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title th:text="${post.title}+' - '+${post.author}+' | BeanBlogger'">BeanBlogger</title>
+
+        <style>
+            article {
+                text-align: justify;
+            }
+        </style>
     </head>
     <body>
         <main>
             <h1 th:text="${post.title}"></h1>
             <h4 th:text="${post.author}+' - '+${post.date}"></h4>
 
-            <article th:text="${post.content}"></article>
+            <article>
+                <th:block th:each="paragraph : ${post.splitContentParagraphs()}">
+                    <p th:text="${paragraph}"></p>
+                </th:block>
+            </article>
         </main>
     </body>
 </html>

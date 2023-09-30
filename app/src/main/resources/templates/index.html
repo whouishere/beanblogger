@@ -7,7 +7,8 @@
     </head>
     <body>
         <main>
-            <th:block th:if="${posts != null}" th:each="post : ${posts}">
+            <a href="/new">Write a new blog post!</a>
+            <th:block th:each="post : ${posts}">
                 <a th:href="@{${post.id}}">
                     <div>
                         <h3 th:text="${post.title}"></h3>
@@ -15,7 +16,7 @@
                     </div>
                 </a>
             </th:block>
-            <h3 th:unless="${posts != null}">No posts yet :(</h3>
+            <h3 th:if="${posts == null}">No posts yet :(</h3>
         </main>
     </body>
 </html>

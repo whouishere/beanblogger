@@ -1,6 +1,8 @@
 package com.willian.beanblogger;
 
 import java.time.Instant;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import com.github.kkuegler.HumanReadableIdGenerator;
@@ -21,6 +23,10 @@ public class Post {
         this.title = title;
         this.author = author;
         this.content = content;
+    }
+
+    public List<String> splitContentParagraphs() {
+        return Arrays.asList(this.content.split("[\\r\\n]+"));
     }
 
     public String getId() { return this.ID; }
