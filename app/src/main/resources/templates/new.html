@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Write a post | BeanBlogger</title>
+
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <h2>Write a post</h2>
+            <form action="/new" method="post">
+                <p>
+                <strong>
+                    <label for="title">Title</label>
+                </strong>
+                </p>
+
+                <p class="error"
+                      th:if="${title_error != null}"
+                      th:text="${title_error.summary}">
+                    Title error
+                </p>
+
+                <input type="text" name="title" th:value="${title}">
+
+                <p>
+                <strong>
+                    <label for="author">Author</label>
+                </strong>
+                </p>
+
+                <p class="error"
+                      th:if="${author_error != null}"
+                      th:text="${author_error.summary}">
+                    Author error
+                </p>
+
+                <input type="text" name="author" th:value="${author}">
+
+                <br>
+                <br>
+                <br>
+
+                <p class="error"
+                      th:if="${content_error != null}"
+                      th:text="${content_error.summary}">
+                    Content error
+                </p>
+
+                <textarea name="content" cols="100" rows="50" th:text="${content}"></textarea>
+
+                <br>
+                <button type="submit">submit</button>
+            </form>
+        </main>
+    </body>
+</html>

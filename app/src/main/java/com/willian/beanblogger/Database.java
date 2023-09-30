@@ -30,8 +30,16 @@ public class Database {
         return post == null ? Optional.empty() : Optional.of(post);
     }
 
-    public void newPost(String title, String author, String content) {
+    /**
+     * creates a new post in the database
+     * @param title
+     * @param author
+     * @param content
+     * @return the post ID
+     */
+    public String newPost(String title, String author, String content) {
         var post = new Post(title, author, content, this.generator);
         db.put(post.getId(), post);
+        return post.getId();
     }
 }
