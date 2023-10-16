@@ -15,7 +15,7 @@
     <body>
         <main>
             <h1 th:text="${post.title}"></h1>
-            <h4 th:text="${post.author}+' - '+${post.date}"></h4>
+            <h4 th:text="${post.author}+' | '+${post.instant.date}+' - '+${post.instant.time}"></h4>
 
             <article>
                 <th:block th:each="paragraph : ${post.splitContentParagraphs()}">
